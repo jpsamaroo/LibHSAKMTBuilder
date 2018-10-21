@@ -22,6 +22,7 @@ sed -i 's/^\(.*\)nodelete\(.*\)$/\1nodelete -L\/workspace\/destdir\/lib\/\2/g' .
 cmake -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain ..
 make -j${nproc}
 make install
+rsync -a ../include/ $WORKSPACE/destdir/include/
 
 """
 
